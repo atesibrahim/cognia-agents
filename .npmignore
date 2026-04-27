@@ -1,0 +1,10 @@
+# Exclude editor/IDE config
+.claude/
+
+# Exclude git internals
+.git/
+.gitignore
+.gitattributes
+
+# Exclude CI/CD configs (not needed by consumers)
+.github/workflows/

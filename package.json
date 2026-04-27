@@ -1,0 +1,21 @@
+{
+  "name": "cognia",
+  "version": "1.0.0",
+  "description": "Cognia consists of multiple agents (architecture, system design, developer, and more) to analyse existing projects comprehensively.",
+  "keywords": [
+    "ai",
+    "agents",
+    "copilot",
+    "analysis",
+    "architecture",
+    "code-review",
+    "cognia"
+  ],
+  "license": "MIT",
+  "files": [
+    "AGENTS.md",
+    "README.md",
+    ".github/agents",
+    ".github/skills"
+  ]
+}
