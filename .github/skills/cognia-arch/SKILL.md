@@ -8,14 +8,16 @@ argument-hint: ' system name or path to analysis report to base diagrams from'
 
 # Instructions
 
-1. Read the - `{project_name}-architecture.html` and `{project_name}-architecture.md` files after created to ensure they are correctly generated and contain the required diagrams and documentation. If the HTML file is not rendering diagrams correctly, check for common Mermaid syntax issues (unclosed blocks, reserved keywords in node IDs, etc.) and regenerate the file if needed.
-2. **Run validation** on the generated HTML file using the File Creation Validation Checklist from [STANDARDS.md](./STANDARDS.md) before proceeding. This ensures the diagrams will render correctly and are not broken due to syntax errors or file generation issues.
-3. **Report validation results**:
+1. **Before generating HTML output**, read and follow [DESIGN_SKILL.md](./DESIGN_SKILL.md) for generation guidelines and [DESIGN_STANDARDS.md](./DESIGN_STANDARDS.md) for exact visual theme, typography, and layout standards.
+2. Generate the `{project_name}-architecture.html` and `{project_name}-architecture.md` files following the standards defined in both referenced files above.
+3. Read the - `{project_name}-architecture.html` and `{project_name}-architecture.md` files after created to ensure they are correctly generated and contain the required diagrams and documentation. If the HTML file is not rendering diagrams correctly, check for common Mermaid syntax issues (unclosed blocks, reserved keywords in node IDs, etc.) and regenerate the file if needed.
+4. **Run validation** on the generated HTML file using the File Creation Validation Checklist from [DESIGN_STANDARDS.md](./DESIGN_STANDARDS.md) before proceeding. This ensures the diagrams will render correctly and are not broken due to syntax errors or file generation issues.
+5. **Report validation results**:
    - If valid: Confirm the diagram is valid and exit
    - If invalid: Show the errors found and explain what's wrong
-4. **Fix the issues** automatically (invalid diagrams have no value)
-5. **Re-validate** to confirm the fix worked
-6. Repeat steps 4-5 until there are no validation issues
+6. **Fix the issues** automatically (invalid diagrams have no value)
+7. **Re-validate** to confirm the fix worked
+8. Repeat steps 6-7 until there are no validation issues
 
 ## Role
 **Principal Architect** — Reconstruct and visually document the  architecture with precision. Produce diagrams that make even the most chaotic  systems understandable.
@@ -27,6 +29,16 @@ Create folder `cognia/` and produce:
 - `{project_name}-architecture.html` — Interactive visual diagrams (Mermaid.js)
 
 > ⚠️ **Always overwrite these files completely** — never append. Use `create_file` or write the full content from scratch. Appending produces two HTML documents in one file, which breaks rendering.
+
+## HTML Generation Standards
+When generating the `{project_name}-architecture.html` file:
+1. **Follow [DESIGN_SKILL.md](./DESIGN_SKILL.md)** for generation guidelines and best practices
+2. **Apply [DESIGN_STANDARDS.md](./DESIGN_STANDARDS.md)** for:
+   - Exact CSS theme tokens (colors, spacing, typography)
+   - Document structure and required HTML5 elements
+   - Responsive behavior for mobile (`max-width: 768px`)
+   - Mermaid diagram container styling
+   - Navigation and section treatment
 
 ---
 
@@ -59,7 +71,9 @@ Map how components communicate:
 ### Step 4 — Generate Visual Diagrams (HTML + Mermaid.js)
 Produce all diagrams as an HTML file with embedded Mermaid.js.
 
-Use the **HTML + Mermaid.js Page Template** from [STANDARDS.md](./STANDARDS.md) as the starting document for `{project_name}-architecture.html`.
+**Use the guidelines from [DESIGN_SKILL.md](./DESIGN_SKILL.md) and exact standards from [DESIGN_STANDARDS.md](./DESIGN_STANDARDS.md) for all HTML output generation.**
+
+Use the **HTML + Mermaid.js Page Template** from [DESIGN_STANDARDS.md](./DESIGN_STANDARDS.md) as the starting document for `{project_name}-architecture.html`.
 
 Required diagram sections (match the template structure):
 - **4.1** — High-Level Architecture (system boundary: clients, app server, DB, external)
@@ -122,7 +136,7 @@ graph TD
 
 ### Step 4.1 — Validate the Generated HTML File
 
-After writing `{project_name}-architecture.html`, run through the **File Creation Validation Checklist** from [STANDARDS.md](./STANDARDS.md) before proceeding.
+After writing `{project_name}-architecture.html`, run through the **File Creation Validation Checklist** from [DESIGN_STANDARDS.md](./DESIGN_STANDARDS.md) before proceeding.
 
 Key checks for this skill's output:
 - `<!DOCTYPE html>` appears exactly **once** (no accidental file append)
@@ -132,7 +146,8 @@ Key checks for this skill's output:
 - No `\n` inside quoted node labels — use `<br/>` for multi-line labels
 - Node IDs contain no spaces or reserved keywords (`end`, `subgraph`)
 - **erDiagram labels** — every relationship label is one word or a quoted multi-word string; no empty labels after `:`; no spaces in entity names
-- **Panzoom script** — `<script src="https://cdn.jsdelivr.net/npm/panzoom@9/dist/panzoom.min.js"></script>` is in `<head>` AND the full toolbar + panzoom initialisation block is present before `</body>` (copy verbatim from the template in STANDARDS.md — never omit it)
+- **Panzoom script** — `<script src="https://cdn.jsdelivr.net/npm/panzoom@9/dist/panzoom.min.js"></script>` is in `<head>` AND the full toolbar + panzoom initialisation block is present before `</body>` (copy verbatim from the template in DESIGN_STANDARDS.md — never omit it)
+- **Theme tokens and typography** — verify all CSS variables and fonts match exactly with [DESIGN_STANDARDS.md](./DESIGN_STANDARDS.md)
 
 If the file is missing or any check fails, **regenerate the entire file** from scratch using `create_file`. Do not attempt to patch individual lines.
 
