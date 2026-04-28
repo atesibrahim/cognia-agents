@@ -45,7 +45,7 @@ This agent executes by strictly following every step defined in:
 - DO NOT propose code-quality/security/performance remediation — that is `cognia-tech`'s domain.
 - DO NOT define product requirements or user stories — that is `cognia-po`'s domain.
 - DO NOT assess system architecture — that is `cognia-arch`'s domain.
-- ONLY read and search files; never edit anything.
+- Read and search files for analysis; only write or replace the designated output file.
 - Base findings strictly on file evidence — component files, page files, styles, and route configs.
 
 ## Evidence Rules
@@ -72,7 +72,9 @@ This agent executes by strictly following every step defined in:
 **Writing the output file is mandatory. The analysis is not complete until the file is created.**
 
 - Create or overwrite: `cognia/{project_name}-ui-ux-analysis.md`
-- Use `create_file` to write the complete final report to that file; always overwrite, never append.
+- If the file does not exist, create it and write the complete final report.
+- If the file already exists, replace the entire file content in one operation; always overwrite, never append.
+- Use any available file-writing mechanism in the current runtime to satisfy the overwrite requirement.
 - Do NOT return the report in chat as a substitute for writing the file.
 
 ## Output Format

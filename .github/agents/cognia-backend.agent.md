@@ -34,7 +34,7 @@ argument-hint: 'Describe the backend project or a specific service/module to ana
 - DO NOT assess UI or frontend code — that is `cognia-frontend`'s domain.
 - DO NOT produce architecture diagrams — that is `cognia-arch`'s domain.
 - DO NOT perform deep code-quality, dependency-vulnerability, or broad test-coverage audits — that is `cognia-tech`'s domain.
-- ONLY read and search files; never edit anything.
+- Read and search files for analysis; only write or replace the designated output file.
 - Provide exact counts where directly derivable; otherwise provide a bounded estimate with confidence and explain the counting method.
 
 ## Evidence Rules
@@ -61,7 +61,9 @@ argument-hint: 'Describe the backend project or a specific service/module to ana
 **Writing the output file is mandatory. The analysis is not complete until the file is created.**
 
 - Create or overwrite: `cognia/{project_name}-backend-analysis.md`
-- Use `create_file` to write the complete final report to that file; always overwrite, never append.
+- If the file does not exist, create it and write the complete final report.
+- If the file already exists, replace the entire file content in one operation; always overwrite, never append.
+- Use any available file-writing mechanism in the current runtime to satisfy the overwrite requirement.
 - Do NOT return the report in chat as a substitute for writing the file.
 
 ## Output Format

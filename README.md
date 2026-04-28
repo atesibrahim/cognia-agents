@@ -1,8 +1,10 @@
 # Cognia
 
-A collection of specialised AI agents and skills for comprehensive project analysis — covering architecture, backend, frontend, iOS, Android, UX, technical quality, and product ownership.
+A collection of specialised AI agents and skills for comprehensive project analysis — covering architecture, backend, frontend, iOS, Android, UX, technical quality, product ownership, performance, security, reverse engineering, and test engineering.
 
 ## Agents
+
+Agents auto-detect the platform(s) present in a project (backend, frontend, iOS, Android, or mixed) and apply only the relevant analysis playbook(s). Every agent writes its findings to a mandatory output file in `cognia/`.
 
 | Agent | Domain | Description |
 |-------|--------|-------------|
@@ -11,8 +13,12 @@ A collection of specialised AI agents and skills for comprehensive project analy
 | `cognia-backend` | Backend / API | Endpoint inventory, service catalogue, integrations, database schema, auth, and background jobs |
 | `cognia-frontend` | Frontend / Web | Page and route inventory, component catalogue, state management, API integration, and build config |
 | `cognia-ios` | iOS mobile | Full iOS codebase audit: screens, components, networking, navigation, state management |
+| `cognia-perf` | Performance analysis | Auto-detects platform(s) and audits for bottlenecks: slow queries, large bundles, blocking threads, memory issues — with a prioritised improvement roadmap |
 | `cognia-po` | Product ownership | Feature inventory, user stories, requirements gaps, business value mapping, and backlog recommendations |
+| `cognia-reverse` | Reverse engineering | Extracts business domain, user roles, workflows, business rules, and integrations from code — output written for business analysts and product owners |
+| `cognia-sec` | Security analysis | Auto-detects platform(s) and audits for vulnerabilities: injection, broken auth, insecure storage, exposed secrets, dependency CVEs — with a CVSS-aligned remediation roadmap |
 | `cognia-tech` | Technical quality | Code quality, tech debt, dependency audit, security vulnerabilities, and test coverage gaps |
+| `cognia-test` | Test engineering | Audits existing test coverage for correctness and quality, identifies missing unit/integration/e2e tests, and produces a prioritised test backlog with acceptance criteria |
 | `cognia-ux` | UI/UX design | Page inventory, user flow mapping, design consistency, accessibility audit, and UX improvements |
 
 ## Skills

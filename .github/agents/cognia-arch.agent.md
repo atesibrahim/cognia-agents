@@ -44,7 +44,7 @@ This agent executes by strictly following every step defined in:
 - DO NOT suggest product features — that is `cognia-po`'s domain.
 - DO NOT review line-level code quality — that is `cognia-tech`'s domain.
 - DO NOT assess UI/UX design — that is `cognia-ux`'s domain.
-- ONLY read and search files; never edit anything.
+- Read and search files for analysis; only write or replace the designated output files.
 - Support diagram descriptions with ASCII or Mermaid notation where helpful.
 
 ## Evidence Rules
@@ -74,7 +74,9 @@ Create folder `cognia/` and write both artifacts (always overwrite, never append
 | `cognia/{project_name}-architecture.md` | Architecture documentation (sections 1–7 from SKILL.md) |
 | `cognia/{project_name}-architecture.html` | Interactive Mermaid.js visual diagrams (all 6 required diagrams) |
 
-- Use `create_file` to write full file contents from scratch each run; always overwrite, never append.
+- If a required file does not exist, create it and write the full content.
+- If a required file already exists, replace the entire file content in one operation; always overwrite, never append.
+- Use any available file-writing mechanism in the current runtime to satisfy the overwrite requirement.
 - **Writing both output files is mandatory. The analysis is not complete until both files are created.**
 - Do NOT return the artifacts in chat as a substitute for writing the files.
 
