@@ -12,10 +12,25 @@
     "cognia"
   ],
   "license": "MIT",
+  "type": "module",
+  "bin": {
+    "cognia": "bin/install.js"
+  },
+  "scripts": {
+    "install:global": "node bin/install.js --global",
+    "install:local": "node bin/install.js --local",
+    "uninstall": "node bin/install.js --uninstall",
+    "new-skill": "bash scripts/new-skill.sh",
+    "sync:wrappers": "node scripts/sync-wrappers.js",
+    "check:wrappers": "node scripts/sync-wrappers.js --check"
+  },
   "files": [
     "AGENTS.md",
     "README.md",
     ".github/agents",
-    ".github/skills"
+    ".github/skills",
+    ".claude/agents",
+    "bin/",
+    "scripts/"
   ]
 }

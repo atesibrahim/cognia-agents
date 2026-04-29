@@ -33,17 +33,55 @@ Agents auto-detect the platform(s) present in a project (backend, frontend, iOS,
 
 All agent definitions live in `.github/agents/*.agent.md`. Reference them in VS Code's agent mode or any Copilot-compatible tool.
 
-### Quick start
+### Installation
 
-1. Install the package (or copy the files into your project):
+Run the interactive installer via `npx` — no local install required:
 
 ```bash
-npm install cognia
+npx cognia
 ```
 
-2. Copy the agent and skill files into your project's `.github/` directory, or point your Copilot configuration at `node_modules/cognia/.github/`.
+The installer will ask:
+- **Scope**: `Global` (recommended — available in all projects) or `Local` (current project only)
+- **Runtime**: `All` (Claude Code + Codex CLI), `Claude Code only`, or `Codex CLI only`
 
-3. In VS Code agent mode, select the relevant agent (e.g. `cognia-arch`) and describe the project or sub-system to analyse.
+#### Non-interactive flags
+
+```bash
+npx cognia --global          # global install, all runtimes
+npx cognia --local           # local install (current project)
+npx cognia --uninstall       # remove all installed files
+```
+
+#### Script shortcuts (if installed locally)
+
+```bash
+npm run install:global   # global install, all runtimes
+npm run install:local    # local install
+npm run uninstall        # remove
+```
+
+### What gets installed
+
+| Location | Contents |
+|----------|----------|
+| `~/.copilot/agents/` or `.github/agents/` | 12 `.agent.md` definition files |
+| `~/.copilot/skills/` or `.github/skills/` | Skill folders for `cognia-arch`, `cognia-tech`, `cognia-ux` |
+| `~/.claude/agents/` | Claude Code agent wrappers |
+| `~/.claude/skills/` | Claude Code skill wrappers |
+| `~/.codex/skills/` | Codex CLI skill wrappers |
+
+### Quick start
+
+1. Run the installer:
+
+```bash
+npx cognia
+```
+
+2. In VS Code agent mode, select the relevant agent (e.g. `cognia-arch`) and describe the project or sub-system to analyse.
+
+3. In Claude Code, invoke agents with `/cognia-arch` or `@cognia-tech`.
 
 ## Cross-Agent Rules
 
